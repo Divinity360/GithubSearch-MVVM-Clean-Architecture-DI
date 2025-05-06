@@ -6,9 +6,10 @@
 
 A Swift iOS application that leverages the GitHub API to search for users and display their followers. Built with a clean MVVM architecture, dependency injection, and comprehensive testing.
 
-<p align="center">
-  <img src="Screenshots/app_preview.png" width="800" alt="App Preview">
-</p>
+![Simulator Screenshot - Clone 1 of iPhone 16 Pro - 2025-05-06 at 10 31 33](https://github.com/user-attachments/assets/9551418c-df8b-47d3-b1eb-446f25bffec0)
+![Simulator Screenshot - Clone 1 of iPhone 16 Pro - 2025-05-06 at 10 31 40](https://github.com/user-attachments/assets/36752a09-1646-4e5b-9671-357a7865449a)
+![Simulator Screenshot - Clone 1 of iPhone 16 Pro - 2025-05-06 at 10 31 47](https://github.com/user-attachments/assets/ddc0eac6-95ae-4ad2-a74b-0d9d8d26ff86)
+
 
 ## Features
 
