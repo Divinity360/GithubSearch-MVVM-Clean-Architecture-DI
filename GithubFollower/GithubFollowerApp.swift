@@ -6,27 +6,32 @@
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct GithubFollowerApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
+    @ObservedObject private var colorSchemeManager = ColorSchemeManager.shared
+    @ObservedObject private var diContainer = DIContainer.shared
+    
+    init() {
+        // Configure global services
+        setupTestingParameters()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBarView()
+                .preferredColorScheme(colorSchemeManager.colorScheme)
+                .withDIContainer(diContainer)
         }
-        .modelContainer(sharedModelContainer)
+    }
+    
+    private func setupTestingParameters() {
+        // Check for UI test arguments
+        let arguments = ProcessInfo.processInfo.arguments
+        
+        // Clear favorites for UI testing if needed
+        if arguments.contains("-clearFavorites") {
+            UserDefaults.standard.removeObject(forKey: "favorites")
+        }
     }
 }
